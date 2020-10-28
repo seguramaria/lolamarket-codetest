@@ -1,0 +1,37 @@
+/* Fonts*/
+
+@font-face {
+  font-family: 'SF UI Display Regular';
+  src: url('../stylesheets/fonts/SF-UI-Display-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'SF UI Display Semibold';
+  src: url('../stylesheets/fonts/SF-UI-Display-Semibold.ttf');
+}
+
+@font-face {
+  font-family: 'SF UI Display Medium';
+  src: url('../stylesheets/fonts/SF-UI-Display-Medium.ttf');
+}
+
+// Family
+$font-main: 'SF UI Display Regular';
+$font-titles: 'SF UI Display Semibold';
+$font-subtitles: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-btn: 'SF UI Display Medium';
+
+/* Colors*/
+
+$primary-color: #666666;
+$secondary-color: #4fd053;
+$light-color: #ffffff;
+$line-color: #d5d5d5;
+$hover-color: #f5f5f5;
+$select-color: #4fd053;
+$subcategory-color: #9a9a9a;
+$shadows: rgba(0, 0, 0, 0.5);
+
+/* BREAKPOINTS */
+$tablet: 768px;
+$desktop: 1280px;

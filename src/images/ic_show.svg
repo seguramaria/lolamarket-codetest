@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_show</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Open" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-331.000000, -224.000000)">
+        <g id="Categories" transform="translate(48.000000, 88.000000)" fill="#9A9A9A">
+            <g id="list" transform="translate(0.000000, 63.500000)">
+                <g id="Open-Group" transform="translate(0.000000, 56.000000)">
+                    <g id="item">
+                        <g id="ic_hide" transform="translate(283.000000, 16.000000)">
+                            <path d="M9.14934399,13 L18.0876485,21.9383045 C18.332333,22.182989 18.332333,22.579701 18.0876485,22.8243856 C17.8429639,23.0690701 17.4462519,23.0690701 17.2015674,22.8243856 L7.91235153,13.5351697 C7.76651002,13.3893282 7.70759573,13.1894771 7.73560864,13 C7.70759573,12.8105229 7.76651002,12.6106718 7.91235153,12.4648303 L17.2015674,3.17561442 C17.4462519,2.93092988 17.8429639,2.93092988 18.0876485,3.17561442 C18.332333,3.42029896 18.332333,3.81701098 18.0876485,4.06169552 L9.14934399,13 Z" id="Combined-Shape" transform="translate(13.000000, 13.000000) rotate(90.000000) translate(-13.000000, -13.000000) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
