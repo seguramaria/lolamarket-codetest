@@ -2,7 +2,7 @@ import logo from '../images/ic_circled_super.png';
 import checked from "../images/ic_checked.svg";
 import show from "../images/ic_show.svg";
 import hide from "../images/ic_hide.svg";
-import logoCategory from "../images/logo.svg";
+import logoCategory from "../images/ic_category_000.png";
 
 import '../stylesheets/app.scss';
 
