@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import checked from "../images/ic_checked.svg";
+import React from 'react';
+// import checked from "../images/ic_checked.svg";
 import show from "../images/ic_show.svg";
 import hide from "../images/ic_hide.svg";
 import logoCategory from "../images/ic_category_000.png";

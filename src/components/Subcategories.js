@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import checked from "../images/ic_checked.svg";
 import '../stylesheets/app.scss';
 

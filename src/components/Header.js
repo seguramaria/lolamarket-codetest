@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from '../images/ic_circled_super.png';
 import '../stylesheets/app.scss';
 

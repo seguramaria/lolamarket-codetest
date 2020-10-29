@@ -1,17 +1,39 @@
-import React, { useState } from 'react';
-import logo from '../images/ic_circled_super.png';
-import checked from "../images/ic_checked.svg";
-import show from "../images/ic_show.svg";
-import hide from "../images/ic_hide.svg";
-import logoCategory from "../images/ic_category_000.png";
-import listCategories from '../data/categories.json';
+import React, { useState, useEffect } from 'react';
+// import React from "react";
 import '../stylesheets/app.scss';
 import Header from "./Header";
-import Categories from "./Categories"
-import Subcategories from "./Subcategories"
+import Categories from "./Categories";
+import Subcategories from "./Subcategories";
+import Token from "../data/token.json";
+import PostalCodeData from "../data/postalcode.json";
+import CategoriesData from "../data/categories.json";
+import Items1 from "../data/items_set_1.json";
+import Items2 from "../data/items_set_2.json";
+
 function App() {
 
-  const [categories, setCategories] = useState(listCategories);
+ // ESTADOS
+ const [token, setToken] = useState(Token);
+const [data, setData] = useState(PostalCodeData);
+const [categories, setCategories] = useState(CategoriesData);
+const [products, setProducts] = useState(Items1);
+const [products2, setProducts2] = useState(Items2);
+
+console.log(token);
+console.log(data);
+console.log(categories);
+console.log(products);
+console.log(products2);
+
+
+ //MONTAJE
+//  useEffect(() => {
+//    getPostalCodeFromApi().then((postalCode) => {
+//     console.log(postalCode);
+//     //  setCompany(company);
+//    });
+//  }, []);
+
 
   return (
     <div className="App">
