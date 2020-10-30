@@ -1,19 +1,29 @@
-const getMarketsByPostalCode = (token, postalCode) => {
-   
-  var myHeaders = new Headers();
-  myHeaders.append("Cookie", "device_view=full");
+async function getMarketsByPostalCode (token, postalCode)  {
   
-  var requestOptions = {
+ const requestOptions = {
     method: 'GET',
-    headers: myHeaders,
     redirect: 'follow'
   };
   
- return fetch(`https://api.comprea.com/v7/user/postalcode?token=${token}&postalcode=${postalCode}`, requestOptions)
+ return await fetch(`https://api.comprea.com/v7/user/postalcode?token=${token}&postalcode=${postalCode}`, requestOptions)
     .then(response => response.json())
-    .then(result => result)
-    .catch(error => console.log('error', error));
-  
+    .then(result => { 
+if (result !== undefined) {
+  return  result.services[1].markets.map((market) =>  {
+
+    return {
+      id: market.id,
+      name: market.name,
+      shortcut: market.shortcut,
+      icon: market.icon,
+      color: market.color,
+    };
+
+}
+);
+}
+      })
+     .catch(error => console.log('error', error));
 }
   export default getMarketsByPostalCode;
   

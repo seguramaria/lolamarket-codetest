@@ -3,28 +3,29 @@ import logo from '../images/ic_circled_super.png';
 import '../stylesheets/app.scss';
 
 const Header = (props) =>  {
-
-  // if (PostalCodeData.location.latitude === "40.43315900" && PostalCodeData.location.longitude === "-3.69761200"){
-  //   setpostalCode(PostalCodeData.markets);
-  //   setCategories(CategoriesData.categories);
-  // } else {
-  //   return console.log("Error");
-
-
-  // const selectMarket = props.postalCode.map((markets) => {
-  //  console.log(markets)
+// console.log(props)
       return (
         <header className="categories__header">
           <img className="categories__header__logo" src={logo} alt="Logo de la tienda"></img>
+          <form className="categories__header__form">  
           <div className="categories__header__text">
             <p className="categories__header__text--name">
              Mercadona
             </p>
-            <p className="categories__header__text--cp">
-              Comprando en 28005
-            </p>
-          </div>
+         
+
+            <input className="categories__header__text--cp"
+        placeholder={`Comprando en ${props.postalCode}`}
+        // className="input-name"
+        type="text"
+        name="name"
+        id="name"
+        // value={props.nameFilter}
+        // onChange={handleChange}
+      />
+        </div>
           <button className="categories__header__btn">CAMBIAR</button>
+          </form>
         </header>
           );
      

@@ -1,16 +1,29 @@
 const getMarketCategories = (token, companyId) => {
-  var myHeaders = new Headers();
-  myHeaders.append("Cookie", "device_view=full");
+ 
   
-  var requestOptions = {
+const requestOptions = {
     method: 'GET',
-    headers: myHeaders,
+
     redirect: 'follow'
   };
   
   return fetch(`https://api.comprea.com/v7/company/categories?token=${token}&company_id=${companyId}`, requestOptions)
-    .then(response => response.text())
-    .then(result => result)
+    .then(response => response.json())
+    .then(result => {
+      if (result !== undefined) {
+        return result.categories.map((categories) =>  {
+          return {
+            id: categories.id,
+            name: categories.name,
+            shortcut: categories.shortcut,
+            icon: categories.icon,
+            categories: categories.categories
+            };
+      }          
+      
+    );
+      }
+    })
     .catch(error => console.log('error', error));
   };
 
