@@ -14,7 +14,7 @@ const FilterByMarket = (props) => {
 	let marketsList = props.markets.map((market) => {
 
  return (
-<option key={market.id}   value={market.id} >{market.name}</option>
+<option key={market.id}   value={market.id} className="categories__header__select--option">{market.name}</option>
 			  )
 			
            

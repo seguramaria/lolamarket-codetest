@@ -20,7 +20,7 @@ const [postalCode, setPostalCode] = useState(28039);
 const [companyId, setCompanyId] = useState(1);
 
 const [markets, setMarkets] = useState([]);
-const [marketFilter, setMarketFilter] = useState('all');
+
 
 const [categories, setCategories] = useState([]);
 const [subcategories, setSubcategories] = useState([]);
@@ -57,23 +57,10 @@ const [subcategories, setSubcategories] = useState([]);
       setPostalCode(data.value);
     } else if (data.key !== "") {
       setCompanyId(data.value);
-    }
+    } 
   };
 
-  console.log(companyId);
 
-  // //Filtrado de personajes
-  // const filteredCategories = characters
-  //   .filter((character) => {
-  //     return character.name.toUpperCase().includes(nameFilter.toUpperCase());
-  //   })
-  //   .filter((character) => {
-  //     if (speciesFilter === 'all') {
-  //       return true;
-  //     } else {
-  //       return character.species === speciesFilter;
-  //     }
-  //   });
 
 
   return (
@@ -81,7 +68,7 @@ const [subcategories, setSubcategories] = useState([]);
       <nav className="categories">
         <Header postalCode={postalCode} markets={markets}  handleFilter={handleFilter}
             companyId={companyId}/>
-        <CategoriesList categories={categories} marketFilter={marketFilter}/>
+        <CategoriesList categories={categories} />
         <SubcategoriesList subcategories={categories}/>
       </nav>
     </div>

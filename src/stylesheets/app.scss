@@ -10,7 +10,6 @@ html {
 .App {
   height: 100vh;
   background: rgba(0, 0, 0, 0.75);
-  color: #000000 75%;
 }
 
 //NAV
@@ -22,6 +21,7 @@ html {
   flex-direction: column;
   justify-content: flex-start;
   overflow: scroll;
+
   //NAV HEADER
 
   &__header {
@@ -40,28 +40,29 @@ html {
       height: 24px;
       margin: 20px 12.2px 20px 12px;
     }
+
     &__form {
       display: flex;
       align-items: center;
     }
+
     &__text {
       width: 137px;
-      margin-right: 74.8px;
-
       &--name {
         font-family: $font-titles;
-        font-size: 18px;
-        color: #ffffff;
+        color: $light-color;
         line-height: 18px;
       }
       &--cp {
-        color: #ffffff;
+        color: $light-color;
         background-color: black;
+        width: 60px;
         font-size: 14px;
         line-height: 16px;
         font-family: $font-subtitles;
         opacity: 0.8;
         border: none;
+
         &::placeholder {
           color: #ffffff;
         }
@@ -71,14 +72,18 @@ html {
       }
     }
     &__select {
-      color: #ffffff;
-      width: 52px;
-      height: 14px;
+      color: $light-color;
+      width: 90px;
+      height: 25px;
       font-size: 12px;
       line-height: 14px;
       background: none;
       border: none;
       cursor: pointer;
+
+      &--option {
+        background-color: $primary-color;
+      }
     }
   }
 
@@ -108,8 +113,7 @@ html {
         border-bottom: 1px solid $line-color;
         &--title {
           font-family: $font-main;
-          font-size: 18px;
-          color: #666666;
+          color: $primary-color;
           margin: 0;
         }
         &--arrow {
@@ -127,8 +131,6 @@ html {
 .categories__sublist {
   &__item {
     font-family: $font-main;
-    font-size: 18px;
-    line-height: 21px;
     color: $primary-color;
     background-color: $hover-color;
     cursor: pointer;
