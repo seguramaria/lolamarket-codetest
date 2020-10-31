@@ -3,7 +3,7 @@ import checked from "../images/ic_checked.svg";
 import '../stylesheets/app.scss';
 
 const Subcategory = (props) => {
-console.log(props);
+
 return (
    // <Link to={`/category/${props.shortcut}`} className="category">
    <li className="categories__sublist__item"> 

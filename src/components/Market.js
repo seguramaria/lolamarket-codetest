@@ -6,7 +6,7 @@ import FilterByPostalCode from './FilterByPostalCode';
 
 const Market= (props) =>  {
 
-console.log(props.market);
+// console.log(props.market);
 
 if (props.companyId === props.market.id) {}
 

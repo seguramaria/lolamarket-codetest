@@ -15,10 +15,12 @@ const [token, setToken] = useState("");
 const [postalCode, setPostalCode] = useState(28039);
 const [companyId, setCompanyId] = useState(1);
 const [markets, setMarkets] = useState([]);
-
-
 const [categories, setCategories] = useState([]);
-const [subcategories, setSubcategories] = useState([]);
+
+const [collapsible, setCollapsible] = useState('');
+
+
+
 // const [products, setProducts] = useState([]);
 
 
@@ -56,18 +58,24 @@ const [subcategories, setSubcategories] = useState([]);
     } 
   };
 
- 
+  const handleCollapse = (targetId) => {
+    if (targetId !== collapsible) {
+      setCollapsible(targetId);
+    } else {
+      setCollapsible('');
+    }
+  };
 
 
-
+console.log(collapsible);
 
   return (
     <div className="App">
       <nav className="categories">
         <Header postalCode={postalCode} markets={markets}  handleFilter={handleFilter}
             companyId={companyId}/>
-        <CategoriesList categories={categories} />
-        {/* <SubcategoriesList subcategories={categories}/> */}
+        <CategoriesList categories={categories}   collapsible={collapsible}
+       handleCollapse={handleCollapse}/>
       </nav>
     </div>
   );
