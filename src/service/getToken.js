@@ -1,4 +1,4 @@
-async function getToken () {
+function getToken () {
  
   const requestOptions = {
     method: 'GET',

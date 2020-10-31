@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 // import React from "react";
 import '../stylesheets/app.scss';
 import Header from "./Header";
-import Categories from "./Categories";
-import Subcategories from "./Subcategories";
+import CategoriesList from "./CategoriesList";
+import SubcategoriesList from "./SubcategoriesList";
 // import Token from "../data/token.json";
 // import PostalCodeData from "../data/postalcode.json";
 // import CategoriesData from "../data/categories.json";
@@ -33,8 +33,7 @@ const [subcategories, setSubcategories] = useState([]);
        setMarkets(markets)
      })
      getMarketCategories(token, companyId).then((data) => {
-      setCategories(data);
-     console.log(data) 
+      setCategories(data); 
     })
     //  getItems(token, companyId, category).then((data) => {
     //   setProducts(data);
@@ -50,15 +49,21 @@ const [subcategories, setSubcategories] = useState([]);
 
 
 
- 
+//  SUBCATEGORIES
+
+// const subCategoriesArray = categories.map((subcategory) => {
+//   console.log(subcategory.categories);
+//   setSubcategories(subcategory.categories)
+// });
+
 
 
   return (
     <div className="App">
       <nav className="categories">
         <Header postalCode={postalCode} markets={markets}/>
-        <Categories categories={categories}/>
-        <Subcategories Subcategories={Subcategories}/>
+        <CategoriesList categories={categories}/>
+        <SubcategoriesList subcategories={categories}/>
       </nav>
     </div>
   );

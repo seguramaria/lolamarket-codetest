@@ -1,11 +1,11 @@
-async function getMarketsByPostalCode (token, postalCode)  {
+function getMarketsByPostalCode (token, postalCode)  {
   
  const requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
   
- return await fetch(`https://api.comprea.com/v7/user/postalcode?token=${token}&postalcode=${postalCode}`, requestOptions)
+ return  fetch(`https://api.comprea.com/v7/user/postalcode?token=${token}&postalcode=${postalCode}`, requestOptions)
     .then(response => response.json())
     .then(result => { 
 if (result !== undefined) {

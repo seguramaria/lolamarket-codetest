@@ -1,17 +1,6 @@
 @import './variables.scss';
 @import './reset.scss';
 
-// :root {
-//   --desktopHeaderHeight: 80px;
-//   --fullscreenCartWidth: 100vw;
-//   --overlapCartWidth: 464px;
-//   --pinnedCartWidth: 304px;
-//   --zIndexPinned: 69;
-//   --scrollbarSafeSpace: 2rem;
-//   --duration: 300ms;
-//   --timingFunction: cubic-bezier(0.57, 0.21, 0.69, 1);
-// }
-
 html {
   font-family: $font-main;
   font-size: 18px;
@@ -32,7 +21,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
+  overflow: scroll;
   //NAV HEADER
 
   &__header {
@@ -42,13 +31,19 @@ html {
     justify-content: space-around;
     align-items: center;
     padding: 14px 12px 15.1px 0px;
-    // position: fixed;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+
     &__logo {
       width: 24px;
       height: 24px;
       margin: 20px 12.2px 20px 12px;
     }
-
+    &__form {
+      display: flex;
+      align-items: center;
+    }
     &__text {
       width: 137px;
       margin-right: 74.8px;
@@ -61,13 +56,21 @@ html {
       }
       &--cp {
         color: #ffffff;
+        background-color: black;
         font-size: 14px;
         line-height: 16px;
         font-family: $font-subtitles;
         opacity: 0.8;
+        border: none;
+        &::placeholder {
+          color: #ffffff;
+        }
+        &:focus {
+          outline: none;
+        }
       }
     }
-    &__btn {
+    &__select {
       color: #ffffff;
       width: 52px;
       height: 14px;

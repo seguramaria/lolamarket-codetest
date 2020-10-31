@@ -2,22 +2,22 @@ import React from 'react';
 import checked from "../images/ic_checked.svg";
 import '../stylesheets/app.scss';
 
-const Subcategories = (props) => {
+const Subcategory = (props) => {
 
-
+// console.log(props);
 
   return (
-        <ul className="categories__sublist">
+   // <Link to={`/category/${props.shortcut}`} className="category">
           <li className="categories__sublist__item"> 
           {/* <img className="categories__sublist__item--icon"></img> */}
           <div  className="categories__sublist__item__container">
-          <p className="categories__sublist__item__container--title">Nombre categoría</p>
+  <p className="categories__sublist__item__container--title">{props.name}</p>
           <img className="categories__sublist__item__container--check" src={checked} alt="Categoría seleccionada"></img>
           </div>
           </li>
-        </ul>
+     //</Link>
    
   );
 }
 
-export default Subcategories;
+export default Subcategory;

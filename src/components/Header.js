@@ -1,8 +1,11 @@
 import React from 'react';
 import logo from '../images/ic_circled_super.png';
 import '../stylesheets/app.scss';
-
+import FilterByMarket from "../components/FilterByMarket"
 const Header = (props) =>  {
+
+ 
+
 // console.log(props)
       return (
         <header className="categories__header">
@@ -13,18 +16,19 @@ const Header = (props) =>  {
              Mercadona
             </p>
          
-
-            <input className="categories__header__text--cp"
+       <input 
+      className="categories__header__text--cp"
         placeholder={`Comprando en ${props.postalCode}`}
-        // className="input-name"
-        type="text"
+         type="number"
         name="name"
         id="name"
         // value={props.nameFilter}
         // onChange={handleChange}
       />
         </div>
-          <button className="categories__header__btn">CAMBIAR</button>
+
+  <FilterByMarket markets={props.markets}/>
+
           </form>
         </header>
           );
