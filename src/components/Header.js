@@ -3,7 +3,7 @@ import logo from '../images/ic_circled_super.png';
 import '../stylesheets/app.scss';
 import FilterByMarket from "./FilterByMarket"
 import FilterByPostalCode from './FilterByPostalCode';
-import Market from "./Market"
+// import Market from "./Market"
 const Header = (props) =>  {
 
     const preventEvent = (ev) => {
@@ -17,7 +17,7 @@ const Header = (props) =>  {
      <form className="categories__header__form" onSubmit={preventEvent}>  
           <div className="categories__header__text">
             <p className="categories__header__text--name">
-            Mercadona
+           Mercadona
             </p>
    <FilterByPostalCode handleFilter={props.handleFilter}  postalCode={props.postalCode}
         />

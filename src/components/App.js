@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../stylesheets/app.scss';
 import Header from "./Header";
 import CategoriesList from "./CategoriesList";
-import SubcategoriesList from "./SubcategoriesList";
+// import SubcategoriesList from "./SubcategoriesList";
 import getToken from '../service/getToken';
 import getMarketsByPostalCode from '../service/getMarketsByPostalCode';
 import getMarketCategories from "../service/getMarketCategories";
@@ -12,13 +12,8 @@ function App() {
 
  // ESTADOS
 const [token, setToken] = useState("");
-
 const [postalCode, setPostalCode] = useState(28039);
-// const [postalCodeFilter, setPostalCodeFilter] = useState(28039);
-
-
 const [companyId, setCompanyId] = useState(1);
-
 const [markets, setMarkets] = useState([]);
 
 
@@ -57,8 +52,11 @@ const [subcategories, setSubcategories] = useState([]);
       setPostalCode(data.value);
     } else if (data.key !== "") {
       setCompanyId(data.value);
+
     } 
   };
+
+ 
 
 
 
@@ -69,7 +67,7 @@ const [subcategories, setSubcategories] = useState([]);
         <Header postalCode={postalCode} markets={markets}  handleFilter={handleFilter}
             companyId={companyId}/>
         <CategoriesList categories={categories} />
-        <SubcategoriesList subcategories={categories}/>
+        {/* <SubcategoriesList subcategories={categories}/> */}
       </nav>
     </div>
   );

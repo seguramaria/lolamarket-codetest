@@ -6,7 +6,8 @@ const FilterByMarket = (props) => {
 	const handleChange = (ev) => {
 		props.handleFilter({
 		  key: "market",
-		  value: ev.target.value,
+		  value: ev.target.value
+
 		});
 	  };
 
@@ -14,7 +15,7 @@ const FilterByMarket = (props) => {
 	let marketsList = props.markets.map((market) => {
 
  return (
-<option key={market.id}   value={market.id} className="categories__header__select--option">{market.name}</option>
+<option key={market.id} id={market.name}  value={market.id} className="categories__header__select--option">{market.name}</option>
 			  )
 			
            

@@ -17,6 +17,7 @@ const CategoriesList = (props) =>  {
             name={category.name}
             icon={category.icon}
             shortcut={category.shortcut}
+            subcategories={category.categories}
           />
         ); 
       });
