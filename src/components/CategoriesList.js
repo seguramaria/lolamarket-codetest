@@ -10,7 +10,6 @@ import Category from "../components/Category"
 const CategoriesList = (props) =>  {
    
     const categoriesElements = props.categories.map((category) => {
-    
         return (
           <Category
             key={category.id}
@@ -18,9 +17,8 @@ const CategoriesList = (props) =>  {
             name={category.name}
             icon={category.icon}
             shortcut={category.shortcut}
-           
           />
-        ); //vamos a pasar las props hacia abajo que cada personaje tenga sus datos
+        ); 
       });
     
       //Condicional personaje no encontrado

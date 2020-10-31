@@ -1,21 +1,33 @@
 import React from 'react';
 import"../stylesheets/app.scss"
 
-const FilterByName = (props) => {
-    // console.log(props.markets);
-	let marketsList = props.length > 0
-		&& props.markets.map((item, i) => {
+const FilterByMarket = (props) => {
+   
+	const handleChange = (ev) => {
+		props.handleFilter({
+		  key: "market",
+		  value: ev.target.value,
+		});
+	  };
+
+
+	let marketsList = props.markets.map((market) => {
+
+ return (
+<option key={market.id}   value={market.id} >{market.name}</option>
+			  )
+			
            
-            // console.log(item.id);
-		return (
-			<option key={i.id} value={item.name}>{item.name}</option>
-           
-		)
+		
 	});
 
 	return (
 		<div>
-			<select className="categories__header__select">
+			<select className="categories__header__select" id="market"
+        name="market"
+		value={props.companyId}
+		onChange={handleChange}
+        >
 				{marketsList}
 			</select>
 		</div>
@@ -24,4 +36,4 @@ const FilterByName = (props) => {
 
 
 
-export default FilterByName;
+export default FilterByMarket;

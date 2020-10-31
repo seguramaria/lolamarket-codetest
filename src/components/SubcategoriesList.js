@@ -4,9 +4,8 @@ import '../stylesheets/app.scss';
 import Subcategory from "./Subcategory"
 const SubcategoriesList = (props) => {
 
-
-    const subCategoriesElements = props.subcategories.map((subcategory) => {
-      console.log(subcategory.categories);
+const subCategoriesElements = props.subcategories.map((subcategory) => {
+      // console.log(subcategory.categories);
         return (
           <Subcategory
             key={subcategory.id}
@@ -19,14 +18,13 @@ const SubcategoriesList = (props) => {
       });
     
       // Condicional personaje no encontrado
-      if (subCategoriesElements.length === 0)
+ if (subCategoriesElements.length === 0)
         return "Hola";
 
-
-  return (
-        <ul className="categories__sublist">
+return (
+  <ul className="categories__sublist">
                {subCategoriesElements}
-        </ul>
+   </ul>
    
   );
 }

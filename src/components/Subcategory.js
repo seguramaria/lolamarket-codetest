@@ -4,9 +4,7 @@ import '../stylesheets/app.scss';
 
 const Subcategory = (props) => {
 
-// console.log(props);
-
-  return (
+return (
    // <Link to={`/category/${props.shortcut}`} className="category">
           <li className="categories__sublist__item"> 
           {/* <img className="categories__sublist__item--icon"></img> */}
