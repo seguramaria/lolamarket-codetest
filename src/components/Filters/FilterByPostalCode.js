@@ -1,5 +1,5 @@
 import React from 'react';
-
+import IconPen from "../../images/pen.svg"
 
 
 const FilterByPostalCode = (props) => {
@@ -14,6 +14,7 @@ const FilterByPostalCode = (props) => {
   };
 
   return (
+    <>
        <input 
        style={{backgroundColor: (props.filteredMarketsById && props.filteredMarketsById.color) ? `rgb(${props.filteredMarketsById.color})` : "rgb(0, 50, 120)"}}
       className="categories__header__text--cp"
@@ -23,7 +24,9 @@ const FilterByPostalCode = (props) => {
         id="name"
         value={props.postalCode}
         onChange={handleChange}
-      />
+      /> 
+      <img className="categories__header__text--pencil" src={IconPen} alt="Icono editar"></img>
+    </>
     
   );
 };

@@ -17,7 +17,7 @@ const FilterByMarket = (props) => {
  return (
 	 <>
 
-<option key={market.id} id={market.name}  value={market.id} className="categories__header__select--option">{market.name}</option>
+<option key={market.shortcut} id={market.name}  value={market.id} className="categories__header__select--option">{market.name}</option>
 </>
 			  )
 			

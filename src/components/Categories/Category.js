@@ -15,7 +15,7 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
   return (
     <Subcategory
     key={subcategory.id}
-                id={subcategory.id}
+     id={subcategory.id}
       name={subcategory.name}
           shortcut={subcategory.shortcut}
           collapsible={props.collapsible}
@@ -30,7 +30,9 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
   return (
     // <Link to={`/category/${props.shortcut}`} className="category">
     <>
-    <li  className="categories__list__item" id={props.id} onClick={displayPanel}> 
+    <li  className={`categories__list__item ${
+          parseInt(props.collapsible) === props.id ? "clicked" : ""
+        }`}  id={props.id} onClick={displayPanel}> 
     <img className="categories__list__item--icon" src={props.icon ? props.icon : logoCategory} alt="Icono de la categoría" ></img>
       <div className="categories__list__item--category">
        <p className="categories__list__item--category--title">{props.name}</p>
