@@ -36,13 +36,17 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
     <li  className="categories__list__item" id={props.id} onClick={displayPanel}> 
     <img className="categories__list__item--icon" src={props.icon ? props.icon : logoCategory} alt="Icono de la categoría" ></img>
       <div className="categories__list__item--category">
-  <p className="categories__list__item--category--title">{props.name}</p>
-        <img className="categories__list__item--category--arrow hide hidden" src={hide} alt="Flecha" ></img>
-        <img className="categories__list__item--category--arrow " src={show} alt="Flecha" ></img>
+       <p className="categories__list__item--category--title">{props.name}</p>
+        <img className={`categories__list__item--category--arrow ${
+          parseInt(props.collapsible) === props.id ? "" : "hidden"
+        }`} src={hide} alt="Flecha" ></img>
+        <img className={`categories__list__item--category--arrow ${
+          parseInt(props.collapsible) === props.id ? "hidden" : ""
+        }`}  src={show} alt="Flecha" ></img>
      </div>
     </li>
       <ul   className={`categories__sublist ${
-          props.collapsible ? props.id  : "hidden"
+          parseInt(props.collapsible) === props.id ? "" : "hidden"
         }`}>
      {subcategoriesElements}
 </ul>
