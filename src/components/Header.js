@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../images/ic_circled_super.png';
+import logo from '../images/ic_circled_lidl.png';
 import '../stylesheets/app.scss';
 import FilterByMarket from "./FilterByMarket"
 import FilterByPostalCode from './FilterByPostalCode';
@@ -10,22 +10,18 @@ const Header = (props) =>  {
 
 
 
-const filteredMarket = props.markets.find(market => market.id === props.companyId)
-
-console.log(filteredMarket.icon);
-
     const preventEvent = (ev) => {
       ev.preventDefault(ev);
     };
     
     return (
-
-    <header className="categories__header">
-    <img className="categories__header__logo" src={filteredMarket.icon ? filteredMarket.icon : logo}  alt="Logo de la tienda"></img>
-     <form className="categories__header__form" onSubmit={preventEvent}>  
+  <header className="categories__header">
+  <img className="categories__header__logo" src={(props.filteredMarketsById && props.filteredMarketsById.icon) ? props.filteredMarketsById.icon : logo} 
+     alt="Logo de la tienda"></img> 
+  <form className="categories__header__form" onSubmit={preventEvent}>  
           <div className="categories__header__text">
             <p className="categories__header__text--name">
-            {filteredMarket.name ? filteredMarket.name : "Tienda"}
+        {props.filteredMarketsById && props.filteredMarketsById.name ? props.filteredMarketsById.name : "Lidl"} 
             </p>
    <FilterByPostalCode handleFilter={props.handleFilter}  postalCode={props.postalCode} 
         />

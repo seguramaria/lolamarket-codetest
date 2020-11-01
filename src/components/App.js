@@ -15,7 +15,7 @@ const [token, setToken] = useState("");
 const [postalCode, setPostalCode] = useState(28039);
 const [companyId, setCompanyId] = useState(50);
 const [markets, setMarkets] = useState([]);
-const [filteredMarket, setFilteredMarket] = useState({})
+
 const [categories, setCategories] = useState([]);
 const [collapsible, setCollapsible] = useState('');
 // const [products, setProducts] = useState([]);
@@ -42,15 +42,16 @@ const [collapsible, setCollapsible] = useState('');
   }, [token, postalCode, companyId]);
 
 
+
+
  // EVENT HANDLERS: Manejadores que pasaremos luego hacia abajo
 
   //Condicional que indica el filtro que va a actualizar su estado
-  const handleFilter = (data, markets) => {
+  const handleFilter = (data) => {
     if (data.key === 'postalCode') {
       setPostalCode(data.value);
     } else if (data.key !== "") {
       setCompanyId(parseInt(data.value));
-    
     } 
    };
 
@@ -64,24 +65,6 @@ const [collapsible, setCollapsible] = useState('');
   };
 
 
-
-
-
-//  const functionFilterMarkets = (companyId, markets) => {
-//     setFilteredMarkets()
-//   };  
-
-
-console.log(companyId);
-
-
-// console.log(filteredMarketsById);
-
-// console.log(filteredMarket);
-
-      // setFilteredMarket(filteredMarketsById)
-
-
     // FILTRADO DE TIENDAS
  
     // let filteredMarketsById = (markets, companyId)=>{
@@ -91,17 +74,20 @@ console.log(companyId);
     //       setFilteredMarket(market)
     //     }
     //   }
-    //    } 
+    //   // markets.find(market => market.id === companyId) 
+     
+    // } 
    
+    const filteredMarketsById = markets.find(market => market.id === companyId);
 
 // console.log(companyId);
-
-// console.log(filteredMarketsB);
+// console.log(filteredMarket);
+console.log(filteredMarketsById);
   return (
     <div className="App">
       <nav className="categories">
         <Header postalCode={postalCode} markets={markets} 
-        // filteredMarket={filteredMarket} 
+       filteredMarketsById ={filteredMarketsById} 
         handleFilter={handleFilter}
         companyId={companyId}/>
         <CategoriesList categories={categories}   collapsible={collapsible}
