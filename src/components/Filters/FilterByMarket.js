@@ -1,5 +1,5 @@
 import React from 'react';
-import"../stylesheets/app.scss"
+
 
 const FilterByMarket = (props) => {
    
@@ -15,7 +15,10 @@ const FilterByMarket = (props) => {
 	let marketsList = props.markets.map((market) => {
 
  return (
+	 <>
+
 <option key={market.id} id={market.name}  value={market.id} className="categories__header__select--option">{market.name}</option>
+</>
 			  )
 			
            
@@ -29,6 +32,7 @@ const FilterByMarket = (props) => {
 		value={props.companyId}
 		onChange={handleChange}
         >
+			<option value="50">Cambiar</option>
 				{marketsList}
 			</select>
 		</div>

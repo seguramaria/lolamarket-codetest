@@ -1,13 +1,12 @@
 import React from 'react';
 import Subcategory from './Subcategory'
-import show from "../images/down-arrow.svg";
-import hide from "../images/up-arrow.svg";
-import logoCategory from "../images/ic_category_000.png";
-import checked from "../images/ic_checked.svg";
-import "../stylesheets/app.scss"
+import show from "../../images/down-arrow.svg";
+import hide from "../../images/up-arrow.svg";
+import logoCategory from "../../images/ic_category_000.png";
+// import checked from "../images/ic_checked.svg";
+
 
 const Category= (props) => {
-
 
 const displayPanel = (evt) => props.handleCollapse(evt.currentTarget.id);
 
@@ -26,9 +25,7 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
   ); 
 });
 
-// //Condicional no encontrado
-// if (subcategoriesElements.length === 0)
-//   return "Hola";
+
 
   return (
     // <Link to={`/category/${props.shortcut}`} className="category">

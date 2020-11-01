@@ -1,8 +1,7 @@
 import React from 'react';
 // import checked from "../images/ic_checked.svg";
-
-import '../stylesheets/app.scss';
-import Category from "../components/Category"
+import '../../stylesheets/app.scss';
+import Category from "./Category"
 
 
 const CategoriesList = (props) =>  {

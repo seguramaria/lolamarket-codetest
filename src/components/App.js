@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../stylesheets/app.scss';
 import Header from "./Header";
-import CategoriesList from "./CategoriesList";
-// import SubcategoriesList from "./SubcategoriesList";
+import CategoriesList from "./Categories/CategoriesList";
 import getToken from '../service/getToken';
 import getMarketsByPostalCode from '../service/getMarketsByPostalCode';
 import getMarketCategories from "../service/getMarketCategories";
@@ -15,10 +14,9 @@ const [token, setToken] = useState("");
 const [postalCode, setPostalCode] = useState(28039);
 const [companyId, setCompanyId] = useState(50);
 const [markets, setMarkets] = useState([]);
-
 const [categories, setCategories] = useState([]);
 const [collapsible, setCollapsible] = useState('');
-// const [products, setProducts] = useState([]);
+//  const [products, setProducts] = useState([]);
 
 
 //MONTAJE
@@ -67,17 +65,7 @@ const [collapsible, setCollapsible] = useState('');
 
     // FILTRADO DE TIENDAS
  
-    // let filteredMarketsById = (markets, companyId)=>{
-
-    //   for (const market of markets) {
-    //     if (market.id === companyId) {
-    //       setFilteredMarket(market)
-    //     }
-    //   }
-    //   // markets.find(market => market.id === companyId) 
-     
-    // } 
-   
+    
     const filteredMarketsById = markets.find(market => market.id === companyId);
 
 

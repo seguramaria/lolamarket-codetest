@@ -1,14 +1,11 @@
 import React from 'react';
 import logo from '../images/ic_circled_lidl.png';
 import '../stylesheets/app.scss';
-import FilterByMarket from "./FilterByMarket"
-import FilterByPostalCode from './FilterByPostalCode';
-import Market from "./Market"
+import FilterByMarket from "./Filters/FilterByMarket"
+import FilterByPostalCode from './Filters/FilterByPostalCode';
 
 
 const Header = (props) =>  {
-
-
 
     const preventEvent = (ev) => {
       ev.preventDefault(ev);

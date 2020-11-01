@@ -1,6 +1,6 @@
 import React from 'react';
-import checked from "../images/ic_checked.svg";
-import '../stylesheets/app.scss';
+import checked from "../../images/ic_checked.svg";
+
 
 const Subcategory = (props) => {
 
