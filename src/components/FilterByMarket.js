@@ -7,8 +7,8 @@ const FilterByMarket = (props) => {
 		props.handleFilter({
 		  key: "market",
 		  value: ev.target.value
-
 		});
+	
 	  };
 
 

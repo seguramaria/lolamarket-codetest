@@ -13,8 +13,9 @@ function App() {
  // ESTADOS
 const [token, setToken] = useState("");
 const [postalCode, setPostalCode] = useState(28039);
-const [companyId, setCompanyId] = useState(1);
+const [companyId, setCompanyId] = useState(50);
 const [markets, setMarkets] = useState([]);
+
 const [categories, setCategories] = useState([]);
 
 const [collapsible, setCollapsible] = useState('');
@@ -26,9 +27,12 @@ const [collapsible, setCollapsible] = useState('');
 
 //MONTAJE
  useEffect(() => {
+   
   if (token) {
      getMarketsByPostalCode(token, postalCode).then((markets) => {
        setMarkets(markets)
+     
+    
      })
      getMarketCategories(token, companyId).then((data) => {
       setCategories(data); 
@@ -37,6 +41,7 @@ const [collapsible, setCollapsible] = useState('');
     //   setProducts(data);
     
     // })
+
  
    } else {
      getToken().then((data) => {
@@ -53,9 +58,10 @@ const [collapsible, setCollapsible] = useState('');
     if (data.key === 'postalCode') {
       setPostalCode(data.value);
     } else if (data.key !== "") {
-      setCompanyId(data.value);
-
+      setCompanyId(parseInt(data.value));
+     
     } 
+    
   };
 
   const handleCollapse = (targetId) => {
@@ -63,17 +69,33 @@ const [collapsible, setCollapsible] = useState('');
       setCollapsible(targetId);
     } else {
       setCollapsible('');
+    
     }
   };
 
 
-console.log(collapsible);
 
+
+
+//  const functionFilterMarkets = (companyId, markets) => {
+//     setFilteredMarkets()
+//   };
+
+
+    // FILTRADO DE TIENDAS
+ 
+    let filteredMarketsById = markets.find(market => market.id === companyId) 
+
+// console.log(companyId);
+console.log(filteredMarketsById);
+// console.log(filteredMarketsB);
   return (
     <div className="App">
       <nav className="categories">
-        <Header postalCode={postalCode} markets={markets}  handleFilter={handleFilter}
-            companyId={companyId}/>
+        <Header postalCode={postalCode} markets={markets} 
+        filteredMarkets={filteredMarketsById} 
+        handleFilter={handleFilter}
+        companyId={companyId}/>
         <CategoriesList categories={categories}   collapsible={collapsible}
        handleCollapse={handleCollapse}/>
       </nav>
