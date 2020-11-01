@@ -15,7 +15,7 @@ const Header = (props) =>  {
     };
     
     return (
-  <header className="categories__header">
+  <header className="categories__header" style={{backgroundColor: (props.filteredMarketsById && props.filteredMarketsById.color) ? `rgb(${props.filteredMarketsById.color})` : "rgb(0, 50, 120)"}}>
   <img className="categories__header__logo" src={(props.filteredMarketsById && props.filteredMarketsById.icon) ? props.filteredMarketsById.icon : logo} 
      alt="Logo de la tienda"></img> 
   <form className="categories__header__form" onSubmit={preventEvent}>  
@@ -23,7 +23,7 @@ const Header = (props) =>  {
             <p className="categories__header__text--name">
         {props.filteredMarketsById && props.filteredMarketsById.name ? props.filteredMarketsById.name : "Lidl"} 
             </p>
-   <FilterByPostalCode handleFilter={props.handleFilter}  postalCode={props.postalCode} 
+   <FilterByPostalCode handleFilter={props.handleFilter}  postalCode={props.postalCode}  filteredMarketsById={props.filteredMarketsById}
         />
         </div>
   <FilterByMarket markets={props.markets} handleFilter={props.handleFilter}/>

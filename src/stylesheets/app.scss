@@ -25,7 +25,7 @@ html {
   //NAV HEADER
 
   &__header {
-    background-color: black;
+    background-color: 0, 50, 120;
     height: 64px;
     display: flex;
     justify-content: space-around;
@@ -55,7 +55,7 @@ html {
       }
       &--cp {
         color: $light-color;
-        background-color: black;
+        background-color: rgb(0, 50, 120);
         width: 60px;
         font-size: 14px;
         line-height: 16px;

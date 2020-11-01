@@ -80,9 +80,7 @@ const [collapsible, setCollapsible] = useState('');
    
     const filteredMarketsById = markets.find(market => market.id === companyId);
 
-// console.log(companyId);
-// console.log(filteredMarket);
-console.log(filteredMarketsById);
+
   return (
     <div className="App">
       <nav className="categories">

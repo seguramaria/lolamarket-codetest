@@ -6,7 +6,6 @@ import FilterByPostalCode from './FilterByPostalCode';
 
 const Market= (props) =>  {
 
-console.log(props);
 
 
 
