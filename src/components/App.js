@@ -15,13 +15,9 @@ const [token, setToken] = useState("");
 const [postalCode, setPostalCode] = useState(28039);
 const [companyId, setCompanyId] = useState(50);
 const [markets, setMarkets] = useState([]);
-
+const [filteredMarket, setFilteredMarket] = useState({})
 const [categories, setCategories] = useState([]);
-
 const [collapsible, setCollapsible] = useState('');
-
-
-
 // const [products, setProducts] = useState([]);
 
 
@@ -30,19 +26,14 @@ const [collapsible, setCollapsible] = useState('');
    
   if (token) {
      getMarketsByPostalCode(token, postalCode).then((markets) => {
-       setMarkets(markets)
-     
-    
+       setMarkets(markets)    
      })
      getMarketCategories(token, companyId).then((data) => {
       setCategories(data); 
     })
     //  getItems(token, companyId, category).then((data) => {
     //   setProducts(data);
-    
-    // })
-
- 
+        // })
    } else {
      getToken().then((data) => {
        setToken(data);
@@ -54,15 +45,14 @@ const [collapsible, setCollapsible] = useState('');
  // EVENT HANDLERS: Manejadores que pasaremos luego hacia abajo
 
   //Condicional que indica el filtro que va a actualizar su estado
-  const handleFilter = (data) => {
+  const handleFilter = (data, markets) => {
     if (data.key === 'postalCode') {
       setPostalCode(data.value);
     } else if (data.key !== "") {
       setCompanyId(parseInt(data.value));
-     
-    } 
     
-  };
+    } 
+   };
 
   const handleCollapse = (targetId) => {
     if (targetId !== collapsible) {
@@ -79,21 +69,39 @@ const [collapsible, setCollapsible] = useState('');
 
 //  const functionFilterMarkets = (companyId, markets) => {
 //     setFilteredMarkets()
-//   };
+//   };  
+
+
+console.log(companyId);
+
+
+// console.log(filteredMarketsById);
+
+// console.log(filteredMarket);
+
+      // setFilteredMarket(filteredMarketsById)
 
 
     // FILTRADO DE TIENDAS
  
-    let filteredMarketsById = markets.find(market => market.id === companyId) 
+    // let filteredMarketsById = (markets, companyId)=>{
+
+    //   for (const market of markets) {
+    //     if (market.id === companyId) {
+    //       setFilteredMarket(market)
+    //     }
+    //   }
+    //    } 
+   
 
 // console.log(companyId);
-console.log(filteredMarketsById);
+
 // console.log(filteredMarketsB);
   return (
     <div className="App">
       <nav className="categories">
         <Header postalCode={postalCode} markets={markets} 
-        filteredMarkets={filteredMarketsById} 
+        // filteredMarket={filteredMarket} 
         handleFilter={handleFilter}
         companyId={companyId}/>
         <CategoriesList categories={categories}   collapsible={collapsible}

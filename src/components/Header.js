@@ -7,11 +7,12 @@ import Market from "./Market"
 
 
 const Header = (props) =>  {
-// console.log(props);
 
 
-console.log(props.filteredMarkets);
 
+const filteredMarket = props.markets.find(market => market.id === props.companyId)
+
+console.log(filteredMarket.icon);
 
     const preventEvent = (ev) => {
       ev.preventDefault(ev);
@@ -20,11 +21,11 @@ console.log(props.filteredMarkets);
     return (
 
     <header className="categories__header">
-    <img className="categories__header__logo" src={props.filteredMarkets.icon} alt="Logo de la tienda"></img>
+    <img className="categories__header__logo" src={filteredMarket.icon ? filteredMarket.icon : logo}  alt="Logo de la tienda"></img>
      <form className="categories__header__form" onSubmit={preventEvent}>  
           <div className="categories__header__text">
             <p className="categories__header__text--name">
-            {props.filteredMarkets.name} 
+            {filteredMarket.name ? filteredMarket.name : "Tienda"}
             </p>
    <FilterByPostalCode handleFilter={props.handleFilter}  postalCode={props.postalCode} 
         />
