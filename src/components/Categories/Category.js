@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Subcategory from './Subcategory'
 import show from "../../images/down-arrow.svg";
 import hide from "../../images/up-arrow.svg";
@@ -30,7 +30,7 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
 
 
   return (
-    // <Link to={`${props.shortcut}`} className="category">
+  
   <>
     <li  className={`categories__list__item ${
           parseInt(props.collapsible) === props.id ? "clicked" : ""
@@ -46,20 +46,26 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
         }`}  src={show} alt="Flecha" ></img>
      </div>
     </li>
+
+    {/* SUBCATEGORIES */}
+
       <ul   className={`categories__sublist ${
           parseInt(props.collapsible) === props.id ? "" : "hidden"
         }`}>
+          
+           <Link to={`/tienda/${props.filteredMarketsById.shortcut}/${props.shortcut}`} className="category">
             <li className="categories__sublist__item"> 
    <div  className="categories__sublist__item__container">
 <p className="categories__sublist__item__container--title">Ver toda la sección</p>
    <img className="categories__sublist__item__container--check hidden" src={checked} alt="Categoría seleccionada"></img>
    </div>
    </li>
+   </Link> 
      {subcategoriesElements}
 </ul>
 
 </>
-  /* </Link> */
+ 
   );
 };
 
