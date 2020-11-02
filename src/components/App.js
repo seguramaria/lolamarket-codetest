@@ -7,6 +7,7 @@ import getToken from '../service/getToken';
 import getMarketsByPostalCode from '../service/getMarketsByPostalCode';
 import getMarketCategories from "../service/getMarketCategories";
 import CategorySection from "./Filters/CategorySection"
+import Subcategory from './Categories/Subcategory';
 
 // import getItems from "../service/getItems"
 
@@ -73,20 +74,27 @@ const [collapsible, setCollapsible] = useState('');
   // FILTRADO DE TIENDAS
 const filteredMarketsById = markets.find(market => market.id === companyId);
 
-console.log(categories);
-console.log(markets.id);
+
+
   //Renderizamos
   const renderSection = (props) => {
-
-    const routeSectionId = props.match.params.shortcut;
+  
+    const routeSectionId = props.match.params.id;
     // Buscamos el id
-    const section = categories.find(
-      (category) => category.shortcut === routeSectionId
+    const subcategory = categories.map(
+      (category) => category.categories
+    
     );
   
-    if (section) {
+   if (subcategory.id === routeSectionId
+    ) {
+      return <CategorySection subcategories={subcategory}/>    
+    }
+ 
+
+    if (subcategory ) {
       return (
-        <CategorySection categories={categories}/>      
+        <CategorySection subcategories={subcategory }/>      
       );
     } 
   };
@@ -99,16 +107,18 @@ return (
         <Switch>
         <Route exact path="/">   
         <nav className="categories">
+
         <Header postalCode={postalCode} markets={markets} 
          filteredMarketsById ={filteredMarketsById} 
           handleFilter={handleFilter}
           companyId={companyId}/>
+
         <CategoriesList categories={categories}   collapsible={collapsible}
          handleCollapse={handleCollapse}       filteredMarketsById ={filteredMarketsById} />
         </nav>
         </Route>
 
-        <Route path="/tienda/:shortcut" render={renderSection}/>
+        <Route path="/tienda/:shortcut/:category/:shortcut" render={renderSection}/>
         </Switch>
 
 
