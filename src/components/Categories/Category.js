@@ -16,12 +16,13 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
   return (
     <Subcategory
     key={subcategory.id}
-     id={subcategory.id}
-      name={subcategory.name}
-          shortcut={subcategory.shortcut}
-          collapsible={props.collapsible}
-          filteredMarketsById ={props.filteredMarketsById} 
-          handleCollapse={props.handleCollapse}
+    id={subcategory.id}
+    name={subcategory.name}
+    shortcut={subcategory.shortcut}
+    collapsible={props.collapsible}
+    category={props.shortcut}
+    filteredMarketsById ={props.filteredMarketsById} 
+    handleCollapse={props.handleCollapse}
      
     />
   ); 

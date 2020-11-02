@@ -22,8 +22,7 @@ const [collapsible, setCollapsible] = useState('');
 
 //MONTAJE
  useEffect(() => {
-   
-  if (token) {
+    if (token) {
      getMarketsByPostalCode(token, postalCode).then((markets) => {
        setMarkets(markets)    
      })
@@ -64,10 +63,9 @@ const [collapsible, setCollapsible] = useState('');
   };
 
 
-    // FILTRADO DE TIENDAS
+  // FILTRADO DE TIENDAS
  
-    
-    const filteredMarketsById = markets.find(market => market.id === companyId);
+ const filteredMarketsById = markets.find(market => market.id === companyId);
 
 
   return (
