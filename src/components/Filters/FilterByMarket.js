@@ -32,7 +32,7 @@ const FilterByMarket = (props) => {
 		value={props.companyId}
 		onChange={handleChange}
         >
-			<option value="50">Cambiar</option>
+			<option value="50">CAMBIAR</option>
 				{marketsList}
 			</select>
 		</div>

@@ -16,6 +16,7 @@ const CategoriesList = (props) =>  {
             shortcut={category.shortcut}
             subcategories={category.categories}
             collapsible={props.collapsible}
+            filteredMarketsById ={props.filteredMarketsById}
             handleCollapse={props.handleCollapse}
           />
         ); 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Switch } from "react-router-dom"
 import '../stylesheets/app.scss';
 import Header from "./Header";
 import CategoriesList from "./Categories/CategoriesList";
@@ -71,14 +72,18 @@ const [collapsible, setCollapsible] = useState('');
 
   return (
     <div className="App">
+      <Switch>
+      <Route exact path="/">   
       <nav className="categories">
         <Header postalCode={postalCode} markets={markets} 
        filteredMarketsById ={filteredMarketsById} 
         handleFilter={handleFilter}
         companyId={companyId}/>
         <CategoriesList categories={categories}   collapsible={collapsible}
-       handleCollapse={handleCollapse}/>
+       handleCollapse={handleCollapse}       filteredMarketsById ={filteredMarketsById} />
       </nav>
+      </Route>
+      </Switch>
     </div>
   );
 }
