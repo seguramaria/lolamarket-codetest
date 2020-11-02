@@ -28,46 +28,47 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
   ); 
 });
 
-
-
+if (props.filteredMarketsById) {
   return (
+    <>
+      <li  className={`categories__list__item ${
+            parseInt(props.collapsible) === props.id ? "clicked" : ""
+          }`}  id={props.id} onClick={displayPanel}> 
+      <img className="categories__list__item--icon" src={props.icon ? props.icon : logoCategory} alt="Icono de la categoría" ></img>
+        <div className="categories__list__item--category">
+         <p className="categories__list__item--category--title">{props.name}</p>
+          <img className={`categories__list__item--category--arrow ${
+            parseInt(props.collapsible) === props.id ? "" : "hidden"
+          }`} src={hide} alt="Flecha" ></img>
+          <img className={`categories__list__item--category--arrow ${
+            parseInt(props.collapsible) === props.id ? "hidden" : ""
+          }`}  src={show} alt="Flecha" ></img>
+       </div>
+      </li>
   
-  <>
-    <li  className={`categories__list__item ${
-          parseInt(props.collapsible) === props.id ? "clicked" : ""
-        }`}  id={props.id} onClick={displayPanel}> 
-    <img className="categories__list__item--icon" src={props.icon ? props.icon : logoCategory} alt="Icono de la categoría" ></img>
-      <div className="categories__list__item--category">
-       <p className="categories__list__item--category--title">{props.name}</p>
-        <img className={`categories__list__item--category--arrow ${
-          parseInt(props.collapsible) === props.id ? "" : "hidden"
-        }`} src={hide} alt="Flecha" ></img>
-        <img className={`categories__list__item--category--arrow ${
-          parseInt(props.collapsible) === props.id ? "hidden" : ""
-        }`}  src={show} alt="Flecha" ></img>
+      {/* SUBCATEGORIES */}
+  
+ <ul   className={`categories__sublist ${
+            parseInt(props.collapsible) === props.id ? "" : "hidden"
+          }`}>
+            
+    <Link to={`/tienda/${props.filteredMarketsById.shortcut}/${props.shortcut}`} className="category">
+     <li className="categories__sublist__item"> 
+     <div  className="categories__sublist__item__container">
+  <p className="categories__sublist__item__container--title">Ver toda la sección</p>
+     <img className="categories__sublist__item__container--check hidden" src={checked} alt="Categoría seleccionada"></img>
      </div>
-    </li>
+     </li>
+     </Link> 
+       {subcategoriesElements}
+  </ul>
+  
+  </>
+   
+    );
+}
 
-    {/* SUBCATEGORIES */}
 
-      <ul   className={`categories__sublist ${
-          parseInt(props.collapsible) === props.id ? "" : "hidden"
-        }`}>
-          
-           <Link to={`/tienda/${props.filteredMarketsById.shortcut}/${props.shortcut}`} className="category">
-            <li className="categories__sublist__item"> 
-   <div  className="categories__sublist__item__container">
-<p className="categories__sublist__item__container--title">Ver toda la sección</p>
-   <img className="categories__sublist__item__container--check hidden" src={checked} alt="Categoría seleccionada"></img>
-   </div>
-   </li>
-   </Link> 
-     {subcategoriesElements}
-</ul>
-
-</>
- 
-  );
 };
 
 

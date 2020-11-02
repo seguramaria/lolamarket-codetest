@@ -4,7 +4,7 @@ import IconPen from "../../images/pen.svg"
 
 const FilterByPostalCode = (props) => {
 
-  console.log(props);
+
   //Lifting de la info de los inputs
   const handleChange = (ev) => {
     props.handleFilter({
@@ -24,6 +24,7 @@ const FilterByPostalCode = (props) => {
         id="name"
         value={props.postalCode}
         onChange={handleChange}
+        min="8000" max="99999"
       /> 
       <img className="categories__header__text--pencil" src={IconPen} alt="Icono editar"></img>
     </>

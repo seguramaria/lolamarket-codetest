@@ -6,6 +6,8 @@ import CategoriesList from "./Categories/CategoriesList";
 import getToken from '../service/getToken';
 import getMarketsByPostalCode from '../service/getMarketsByPostalCode';
 import getMarketCategories from "../service/getMarketCategories";
+import CategorySection from "./Filters/CategorySection"
+
 // import getItems from "../service/getItems"
 
 function App() {
@@ -24,15 +26,20 @@ const [collapsible, setCollapsible] = useState('');
  useEffect(() => {
     if (token) {
      getMarketsByPostalCode(token, postalCode).then((markets) => {
-       setMarkets(markets)    
-     })
-     getMarketCategories(token, companyId).then((data) => {
-      setCategories(data); 
-    })
+      if (markets) {
+        setMarkets(markets)
+        getMarketCategories(token, companyId).then((data) => {
+          setCategories(data); 
+                  })
+      } else {
+       alert("Código postal erroneo")
+      }
+     
     //  getItems(token, companyId, category).then((data) => {
     //   setProducts(data);
         // })
-   } else {
+     
+   }) } else {
      getToken().then((data) => {
        setToken(data);
      })
@@ -64,26 +71,49 @@ const [collapsible, setCollapsible] = useState('');
 
 
   // FILTRADO DE TIENDAS
- 
- const filteredMarketsById = markets.find(market => market.id === companyId);
+const filteredMarketsById = markets.find(market => market.id === companyId);
+
+console.log(categories);
+console.log(markets.id);
+  //Renderizamos
+  const renderSection = (props) => {
+
+    const routeSectionId = props.match.params.shortcut;
+    // Buscamos el id
+    const section = categories.find(
+      (category) => category.shortcut === routeSectionId
+    );
+  
+    if (section) {
+      return (
+        <CategorySection categories={categories}/>      
+      );
+    } 
+  };
 
 
-  return (
-    <div className="App">
-      <Switch>
-      <Route exact path="/">   
-      <nav className="categories">
+
+
+return (
+      <div className="App">
+        <Switch>
+        <Route exact path="/">   
+        <nav className="categories">
         <Header postalCode={postalCode} markets={markets} 
-       filteredMarketsById ={filteredMarketsById} 
-        handleFilter={handleFilter}
-        companyId={companyId}/>
+         filteredMarketsById ={filteredMarketsById} 
+          handleFilter={handleFilter}
+          companyId={companyId}/>
         <CategoriesList categories={categories}   collapsible={collapsible}
-       handleCollapse={handleCollapse}       filteredMarketsById ={filteredMarketsById} />
-      </nav>
-      </Route>
-      </Switch>
-    </div>
-  );
+         handleCollapse={handleCollapse}       filteredMarketsById ={filteredMarketsById} />
+        </nav>
+        </Route>
+
+        <Route path="/tienda/:shortcut" render={renderSection}/>
+        </Switch>
+
+
+      </div>
+    );  
 }
 
 
