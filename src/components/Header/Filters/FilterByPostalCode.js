@@ -26,7 +26,7 @@ const FilterByPostalCode = (props) => {
         id="name"
         value={props.postalCode}
         onChange={handleChange}
-        min="8000"
+        min="08000"
         max="99999"
       />
       <img

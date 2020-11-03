@@ -59,7 +59,6 @@ En App realizo varias acciones:
   En un inicio, me estaba dando problemas porque a veces la página se renderizaba, pero aún no había obtenido el token del fetch y los siguientes enlaces, por tanto, no funcionaban.
   Así que se me ocurrió 💡 añadir dentro del propio Use effect un condicional para que si tenía un token, me actualizara los estados que le indicara y si no era así, que me consiguiera un token.
   Además, como veremos más adelante, al añadir un filtro de tiendas, tuve que hacer una pequeña modificación y añadí otra condición más.
-  ![Captura del código en UseEffect](./src/images/readme/useEffect.png)
 
   Al final del Use effect le añado las dependencias: **[token, postalCode, companyId, categoryId]** porque si no tendríamos **un bucle infinito**. (Me ha pasado 😆)
 
@@ -72,11 +71,9 @@ En App realizo varias acciones:
 - Filtro
   El filtro de código postal en principio es bastante sencillo. Cuando escucha el evento, guarda los datos en el estado de código postal.
   El único problemilla es que al introducirun código postal erróneo, la página se rompía💥, ya que no podía hacer los fetch, puesto que **postalCode** es una de las claves que necesitamos para hacer el fetch.
-  Así que, de manera provisional😅, se me ha ocurrido poner un alert. Cuando se mete el CP erróneo salta. Para ello, en el use effect le digo que si **markets** existe, me actualice markets y me consiga las categorías y los productos y si no existe, que salte el alert.
+  Así que, de manera provisional😅, se me ha ocurrido poner un alert. Cuando se mete el CP erróneo salta. Para ello, en el use effect le digo que si **markets** existe, me actualice markets y me consiga las categorías y los productos y si no existe, que no actualice y se quede la tienda que se encuentra en el estado incial..
   Esto lo he hecho así porque si postalCode es erróneo, lo primero que falla es el fetch de markets y así no habría problema.
-  No obstante, sé que no es la manera más elegante, quizás con más tiempo podría corregirlo e implementar un aviso más estético.😂
-
-  ![Muestra de cómo funciona el filtro de Código Postal](./src/images/readme/filtroPostalCode.gif)
+  No obstante, sé que lo ideal sería poner un aviso que notifique que el Código Postal es erróneo. He probado con un alert, pero me parecía poco estético. Con un poco más de tiempo se me ocurrirá algo mejor 😂
 
 En cuanto al filtro de markets, me resultó más complejo, ya que se trataba de un array de objetos.
 En principio pensé que al escuchar el evento en cada option del select, luego realizaría un **filter()** y un **includes()**, para que si incluía el id de la tienda, me lo sacara y lo guardara en el estado de tienda filtrada.

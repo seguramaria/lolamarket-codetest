@@ -33,10 +33,6 @@ function App() {
           getItems(token, companyId, categoryId).then((data) => {
             setProducts(data);
           });
-        } else {
-          alert(
-            'El código postal que has introducido es erróneo o aún no disponemos de servicio en él. '
-          );
         }
       });
     } else {
