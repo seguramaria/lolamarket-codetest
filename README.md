@@ -4,6 +4,8 @@
 
 Se trataría de una **barra de navegación** en la que se mostrarán el conjunto de categorías de la tienda. El árbol de categorías **tendrá dos niveles,** una categoría padre puede tener varias categorías hijas; por ejemplo: 'Bebidas' contiene 'Agua', 'Cervezas', 'Refrescos', etc. La visualización de las categorías hijas deben estar dentro de un **menú colapsable** al tocar la categoría padre.
 
+Enlace a la demo: https://lolamarket-codetest.netlify.app/
+
 ## Detalles a resaltar de la especificación visual 💄
 
 La **cabecera** del menú debía ser **fija**. Solo tenía que hacer scroll el listado de categorías.
@@ -144,6 +146,8 @@ Para ello, cuando una categoría es clicada, actualiza el **categoryId** y por l
 ![Vídeo sección de productos](./src/images/readme/products.gif)
 
 No tenía mucho tiempo, pero he intentado usar estilos parecidos al que usáis para los productos. Algunos productos (creo que porque son nuevos) aún no tienen imagen, por lo que he usado un ternario en los que son undefined para que muestre el logo de Lola Market.
+
+Demo: https://lolamarket-codetest.netlify.app/
 
 Y, ¡hasta aquí!
 
