@@ -71,6 +71,7 @@ const Category = (props) => {
             to={`/tienda/${props.filteredMarketById.shortcut}/${props.shortcut}`}
             className="category"
           >
+            {/* General category */}
             <li className="categories__sublist__item">
               <div className="categories__sublist__item__container">
                 <p className="categories__sublist__item__container--title">
@@ -84,6 +85,7 @@ const Category = (props) => {
               </div>
             </li>
           </Link>
+          {/* Subcategories list */}
           {subcategoriesElements}
         </ul>
       </>

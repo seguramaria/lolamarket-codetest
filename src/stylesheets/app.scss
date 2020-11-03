@@ -22,6 +22,7 @@ html {
   justify-content: flex-start;
   overflow: scroll;
   background-color: white;
+
   //NAV HEADER
 
   &__header {
@@ -136,7 +137,7 @@ html {
   }
 }
 
-//Sublist categories
+//SUBCATEGORIES LIST
 
 .categories__sublist {
   &__item {
@@ -158,6 +159,8 @@ html {
     }
   }
 }
+
+// PRODUCTS SECTION
 
 .section-products {
   &__header {
@@ -246,7 +249,7 @@ html {
   }
 }
 
-// IsChecked Class
+// CLASS FOR CLICKED ELEMENTS
 
 .clicked {
   background-color: #deecde;

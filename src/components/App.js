@@ -10,20 +10,18 @@ import getItems from '../service/getItems';
 import ProductSection from './Categories/Products/ProductSection';
 
 function App() {
-  // ESTADOS
   const [token, setToken] = useState('');
-  const [postalCode, setPostalCode] = useState(28039);
+  const [postalCode, setPostalCode] = useState(28039); // Estado inicial código postal 28039
 
   const [markets, setMarkets] = useState([]);
-  const [companyId, setCompanyId] = useState(50);
+  const [companyId, setCompanyId] = useState(50); // Tienda inicial Lidl
 
   const [categories, setCategories] = useState([]);
-  const [categoryId, setCategoryId] = useState(406);
+  const [categoryId, setCategoryId] = useState(406); // Categoría inicial "Ahorro Nestle"
   const [products, setProducts] = useState([]);
 
   const [collapsible, setCollapsible] = useState('');
 
-  //MONTAJE
   useEffect(() => {
     if (token) {
       getMarketsByPostalCode(token, postalCode).then((markets) => {
@@ -48,8 +46,6 @@ function App() {
     }
   }, [token, postalCode, companyId, categoryId]);
 
-  // EVENT HANDLERS: Manejadores que pasaremos luego hacia abajo
-
   //Condicional que indica el filtro que va a actualizar su estado
   const handleFilter = (data) => {
     if (data.key === 'postalCode') {
@@ -68,7 +64,7 @@ function App() {
     }
   };
 
-  //Obtenemos el category_id para poder actualizar el listado de productos que corresponde a dicha categoría.
+  //Obtenemos el categoryId para poder actualizar el listado de productos que corresponde a dicha categoría
   const handleCategories = (targetId) => {
     if (targetId !== categoryId) {
       setCategoryId(parseInt(targetId));
@@ -77,7 +73,7 @@ function App() {
     }
   };
 
-  // FILTRADO DE TIENDAS
+  // Filtrado de tiendas
   const filteredMarketById = markets.find((market) => market.id === companyId);
 
   //Render de la sección de productos
