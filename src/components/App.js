@@ -11,13 +11,13 @@ import ProductSection from './Categories/Products/ProductSection';
 
 function App() {
   const [token, setToken] = useState('');
-  const [postalCode, setPostalCode] = useState(28039); // Estado inicial código postal 28039
+  const [postalCode, setPostalCode] = useState(28039); // Inicial state postal code: 28039
 
   const [markets, setMarkets] = useState([]);
-  const [companyId, setCompanyId] = useState(50); // Tienda inicial Lidl
+  const [companyId, setCompanyId] = useState(50); // Initial market Lidl
 
   const [categories, setCategories] = useState([]);
-  const [categoryId, setCategoryId] = useState(406); // Categoría inicial "Ahorro Nestle"
+  const [categoryId, setCategoryId] = useState(406); // Intial category "Ahorro Nestle"
   const [products, setProducts] = useState([]);
 
   const [collapsible, setCollapsible] = useState('');
@@ -42,7 +42,7 @@ function App() {
     }
   }, [token, postalCode, companyId, categoryId]);
 
-  //Condicional que indica el filtro que va a actualizar su estado
+  // Set status with the filters
   const handleFilter = (data) => {
     if (data.key === 'postalCode') {
       setPostalCode(data.value);
@@ -60,7 +60,7 @@ function App() {
     }
   };
 
-  //Obtenemos el categoryId para poder actualizar el listado de productos que corresponde a dicha categoría
+  // Get the categoryId to update the products
   const handleCategories = (targetId) => {
     if (targetId !== categoryId) {
       setCategoryId(parseInt(targetId));
@@ -69,10 +69,8 @@ function App() {
     }
   };
 
-  // Filtrado de tiendas
   const filteredMarketById = markets.find((market) => market.id === companyId);
 
-  //Render de la sección de productos
   const renderSection = (props) => {
     const routeSectionId = props.match.params.category.shortcut;
     const category = categories.find(
