@@ -12,7 +12,7 @@ Al principio me costó 😅, había aplicado **position sticky** para dejarla fi
 
 Al hacer scroll, la cabecera ya sí permanece fija. 🎉
 
-_gif de la cabecera fija al hacer scroll_
+![Vídeo de Scroll del menú](./images/readme/scroll.gif)
 
 El **color de la tienda** y su **icono** vienen en el objeto de cada tienda. Como veremos más adelante, he creado un **filtro** que actualiza la tienda que se muestra según es seleccionada por el usuario.
 
