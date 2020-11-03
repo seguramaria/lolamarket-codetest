@@ -22,7 +22,8 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
     collapsible={props.collapsible}
     category={props.shortcut}
     filteredMarketsById ={props.filteredMarketsById} 
-    handleCollapse={props.handleCollapse}
+    handleCategories={props.handleCategories}
+
     />
   ); 
 });

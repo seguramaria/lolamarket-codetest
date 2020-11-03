@@ -31,15 +31,16 @@ const [collapsible, setCollapsible] = useState('');
 
 //MONTAJE
  useEffect(() => {
-    if (token) {
+  if (token) {
      getMarketsByPostalCode(token, postalCode).then((markets) => {
-      if (markets) {
+  if (markets ) {
     setMarkets(markets)
-    getMarketCategories(token, companyId).then((data) => {
-          setCategories(data); 
-                  })
-  // getItems(token, companyId, categoryId).then((data) => {
-  //   setProducts(data); })     
+    getMarketCategories(token, companyId).then((data) => {setCategories(data)})
+    getItems(token, companyId, categoryId).then((data) => {
+      console.log(data);    
+      console.log(token, companyId, categoryId);   
+  
+      setProducts(data); })     
       } else {
        alert("Código postal erroneo")
       }
@@ -51,8 +52,7 @@ const [collapsible, setCollapsible] = useState('');
   }, [token, postalCode, companyId, categoryId]);
 
 
-
-  console.log(products);
+console.log(products);
 
 
  // EVENT HANDLERS: Manejadores que pasaremos luego hacia abajo
@@ -61,9 +61,10 @@ const [collapsible, setCollapsible] = useState('');
   const handleFilter = (data) => {
     if (data.key === 'postalCode') {
       setPostalCode(data.value);
-    } else if (data.key !== "") {
+    } else if (data.key === "market") {
       setCompanyId(parseInt(data.value));
     } 
+
    };
 
   const handleCollapse = (targetId) => {
@@ -74,6 +75,16 @@ const [collapsible, setCollapsible] = useState('');
     
     }
   };
+
+  const handleCategories = (targetId) => {
+    if (targetId !== categoryId) {
+  setCategoryId(parseInt(targetId));
+    } else {
+      setCategoryId('');
+      }
+  };
+
+
 
 
   // FILTRADO DE TIENDAS
@@ -92,7 +103,7 @@ const filteredMarketsById = markets.find(market => market.id === companyId);
     
     if (category) {
       return (
-        <CategorySection
+        <CategorySection products={products}
          />  
              
       ) 
@@ -118,7 +129,7 @@ return (
           companyId={companyId}/>
 
         <CategoriesList categories={categories} collapsible={collapsible}
-         handleCollapse={handleCollapse} filteredMarketsById ={filteredMarketsById} />
+         handleCollapse={handleCollapse} filteredMarketsById ={filteredMarketsById}     handleCategories={handleCategories}/>
         </nav>
         </Route>
         <Switch>

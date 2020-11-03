@@ -4,16 +4,18 @@ import { Link } from 'react-router-dom';
 
 const Subcategory = (props) => {
 
-   const displayPanel = (evt) => props.handleCollapse(evt.currentTarget.id);
+	
+	  
+   const selectCategory = (evt) => props.handleCategories(evt.currentTarget.id);
 
 
 return (
    <Link to={`/tienda/${props.filteredMarketsById.shortcut}/${props.category}/${props.shortcut}`} id={props.id} className="subcategory">
-   <li className="categories__sublist__item" id={props.id} > 
+   <li className="categories__sublist__item" name="category" id={props.id}  onClick={selectCategory} > 
    <div  className="categories__sublist__item__container">
    <p className="categories__sublist__item__container--title">{props.name}</p>
    <img className={`categories__sublist__item__container--check ${
-   parseInt(props.collapsible) === props.id ? "" : "hidden"}`}  id={props.id} onClick={displayPanel} src={checked} alt="Categoría seleccionada"></img>
+   parseInt(props.categoryId) === props.id ? "" : "hidden"}`}  id={props.id} src={checked} alt="Categoría seleccionada"></img>
    </div>
    </li>
    </Link>

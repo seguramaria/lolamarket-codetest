@@ -5,15 +5,13 @@ const requestOptions = {
   redirect: 'follow'
 };
 
-fetch(`https://api.comprea.com/v7/company/items?token=${token}&company_id=${companyId}&category_id=${categoryId}`, requestOptions)
-  .then(response => response.text())
+return fetch(`https://api.comprea.com/v7/company/items?token=${token}&company_id=${companyId}&category_id=${categoryId}`, requestOptions)
+  .then(response => response.json())
   .then(result => {
     if (result !== undefined) {
-      return result.items.map((item) => item)
-    }     else {
-      return console.log('error')
-    }    
-  } 
+      return result.items 
+      
+  } }
   )
   .catch(error => console.log('error', error));
 }

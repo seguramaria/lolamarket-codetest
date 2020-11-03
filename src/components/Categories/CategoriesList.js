@@ -18,6 +18,7 @@ const CategoriesList = (props) =>  {
             collapsible={props.collapsible}
             filteredMarketsById ={props.filteredMarketsById}
             handleCollapse={props.handleCollapse}
+            handleCategories={props.handleCategories}
           />
         ); 
       });
