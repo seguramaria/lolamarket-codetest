@@ -3,7 +3,6 @@ const getMarketCategories = (token, companyId) => {
   
 const requestOptions = {
     method: 'GET',
-
     redirect: 'follow'
   };
   

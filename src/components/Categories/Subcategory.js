@@ -8,13 +8,12 @@ const Subcategory = (props) => {
 
 
 return (
-   <Link to={`/tienda/${props.filteredMarketsById.shortcut}/${props.category}/${props.shortcut}`} className="subcategory">
+   <Link to={`/tienda/${props.filteredMarketsById.shortcut}/${props.category}/${props.shortcut}`} id={props.id} className="subcategory">
    <li className="categories__sublist__item" id={props.id} > 
    <div  className="categories__sublist__item__container">
    <p className="categories__sublist__item__container--title">{props.name}</p>
    <img className={`categories__sublist__item__container--check ${
-            parseInt(props.collapsible) === props.id ? "" : "hidden"
-          }`}  id={props.id} onClick={displayPanel} src={checked} alt="Categoría seleccionada"></img>
+   parseInt(props.collapsible) === props.id ? "" : "hidden"}`}  id={props.id} onClick={displayPanel} src={checked} alt="Categoría seleccionada"></img>
    </div>
    </li>
    </Link>

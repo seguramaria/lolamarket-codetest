@@ -156,6 +156,51 @@ html {
   }
 }
 
+.section-products {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid $secondary-color;
+  box-shadow: 0 5px 5px 0 rgba(64, 52, 52, 0.1);
+  padding: 30px 40px;
+
+  &__logo {
+    width: 4.5rem;
+    margin-right: 20px;
+  }
+  &__btn {
+    background-color: $light-color;
+    display: flex;
+    align-items: center;
+    border: none;
+    height: 24px;
+    line-height: 1.6;
+    text-overflow: ellipsis;
+    font-family: 'Helvetica';
+    padding: 10px;
+    margin-left: 30px;
+    &--arrow {
+      margin: 10px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__main {
+    box-shadow: 0 1px 14px 0 rgba(50, 42, 42, 0.1);
+    height: 100vh;
+    background-color: $light-color;
+    text-align: center;
+    padding: 80px;
+
+    &--title {
+      font-family: Helvetica, sans-serif;
+      font-size: 25px;
+      margin: 20px;
+    }
+  }
+}
+
 // IsChecked Class
 
 .clicked {

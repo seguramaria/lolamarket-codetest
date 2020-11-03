@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Subcategory from './Subcategory'
+import Subcategory from './Subcategory';
 import show from "../../images/down-arrow.svg";
 import hide from "../../images/up-arrow.svg";
 import logoCategory from "../../images/ic_category_000.png";
@@ -23,7 +23,6 @@ const subcategoriesElements = props.subcategories.map((subcategory) => {
     category={props.shortcut}
     filteredMarketsById ={props.filteredMarketsById} 
     handleCollapse={props.handleCollapse}
-     
     />
   ); 
 });
