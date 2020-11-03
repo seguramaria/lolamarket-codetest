@@ -49,7 +49,7 @@ La estructura de la carpeta de componentes es la siguiente:
 
 ### App
 
-En app realizo varias acciones:
+En App realizo varias acciones:
 
 - Estados
   Guardo los diferentes **estados iniciales**. Como comentaba anteriormente, los he puesto para que directamente se renderice la página con una tienda concreta en un código postal concreto. Otros estados están vacíos, pero les indico qué tipo de elemento estoy esperando a recibir. Por ejemplo, en token he añadido un String vacío.
@@ -58,7 +58,11 @@ En app realizo varias acciones:
   Aquí he traído los datos de los **fetch** **(se encuentran en la carpeta Services)**. Esta parte ha sido la más problemática para mí, puesto que nunca había trabajado con apis que necesitaran un token o varios datos a la vez. **¡He aprendido muchísimo!** 😄
   En un inicio, me estaba dando problemas porque a veces la página se renderizaba, pero aún no había obtenido el token del fetch y los siguientes enlaces, por tanto, no funcionaban.
   Así que se me ocurrió 💡 añadir dentro del propio Use effect un condicional para que si tenía un token, me actualizara los estados que le indicara y si no era así, que me consiguiera un token.
+  Además, como veremos más adelante, al añadir un filtro de tiendas, tuve que hacer una pequeña modificación y añadí otra condición más.
+  ![Captura del código en UseEffect](./src/images/readme/useEffect.png)
+
   Al final del Use effect le añado las dependencias: **[token, postalCode, companyId, categoryId]** porque si no tendríamos **un bucle infinito**. (Me ha pasado 😆)
+
 - Handle events:
   En este componente también podéis encontrar los manejadores que uso para los eventos y que paso luego por props a los componentes que lo necesitan.
   Destacar, por ejemplo,
@@ -67,19 +71,21 @@ En app realizo varias acciones:
 
 - Filtro
   El filtro de código postal en principio es bastante sencillo. Cuando escucha el evento, guarda los datos en el estado de código postal.
-  **Imagen código**
   El único problemilla es que al introducirun código postal erróneo, la página se rompía💥, ya que no podía hacer los fetch, puesto que **postalCode** es una de las claves que necesitamos para hacer el fetch.
   Así que, de manera provisional😅, se me ha ocurrido poner un alert. Cuando se mete el CP erróneo salta. Para ello, en el use effect le digo que si **markets** existe, me actualice markets y me consiga las categorías y los productos y si no existe, que salte el alert.
   Esto lo he hecho así porque si postalCode es erróneo, lo primero que falla es el fetch de markets y así no habría problema.
   No obstante, sé que no es la manera más elegante, quizás con más tiempo podría corregirlo e implementar un aviso más estético.😂
 
-**\* Insertar imagen del alert de filtro cp**
+  ![Muestra de cómo funciona el filtro de Código Postal](./src/images/readme/filtroPostalCode.gif)
+
 En cuanto al filtro de markets, me resultó más complejo, ya que se trataba de un array de objetos.
 En principio pensé que al escuchar el evento en cada option del select, luego realizaría un **filter()** y un **includes()**, para que si incluía el id de la tienda, me lo sacara y lo guardara en el estado de tienda filtrada.
 
 El problema es que me devolvía un array con un objet dentro y esto me daba problemas. Así que buscando encontre 👉 **find()** que es mucho mejor en este caso. Si el id es igual, me devuelve el primer elemento del array que tenga ese id. Como son ids únicos, consigo el objeto de la tienda que quiero:
 
-\*_IMAGEN FILTRO MARKETS_
+![Código filtro de tiendas](./src/images/readme/filtro_markets.png)
+
+![Vídeo filtro de tiendas](./src/images/readme/filtro_markets.gif)
 
 Esto se lo paso por props a Los demás componentes.
 
@@ -98,10 +104,10 @@ En este componente, hay un elemento al que he aplicado un event prevent default.
 
 Es en el return del Header donde tengo importados los filtros. A destacar, quizás, que en el filtro de markets he tenido que hacer un **map**, ya que era un array de tiendas las que debía pintar en las etiquetas option.
 
-_Header funcionando_
-
 Problema 😵 El header es dinámico, cambian el color, nombre e iconos como decía antes. He encontrado un problema y es que hay tiendas cuyo brackground color es el blanco al igual que las letras del header, esto hace que no se vea qué tienda es.
-_Gif mercados_
+
+![Vídeo problema del filtro de tiendas](./src/images/readme/filtro_marketsBlancas.gif)
+
 He pensado que quizás se podría arreglar con un ternario en las letras del header que dijera que si color de fondo es igual al número que corresponde al blanco, entonces las letras son negras y si no, blancas.
 
 ### Categories
@@ -120,7 +126,7 @@ También cambia el icono de la flecha de la categoría, que pasa de hide a show.
 
 **Subcategory**: Aquí pinto la lista de subcategorías.
 
-_gif subcategorías colapsando_
+![Vídeo subcategorías](./src/images/readme/categoriescolapse.gif)
 
 ### Rutas
 
@@ -131,15 +137,16 @@ Y cada grupo de subcategorías tiene un "Ver toda la sección" cuyo enlace es la
 Para ello, he puesto como ruta exacta “./”
 
 Y como ruta de las secciones:
-**IMAGEN RUTA**
 
-Aquí viene otro ✨**extra**✨ Como también tenía los productos, aunque solo se pedía el menú de categorías, me ha parecido divertido pintar los productos que corresponden a cada subcategoría.
+![Imagen de la ruta](./src/images/readme/ruta.png)
+
+Aquí viene otro ✨**extra**✨ Como también tenía los productos, me ha parecido divertido pintar los productos que corresponden a cada subcategoría.
 
 Para ello, cuando una categoría es clicada, actualiza el **categoryId** y por lo tanto la lista de productos, que se la paso al componente **Products**.
 
-No tenía mucho tiempo, pero he intentado usar estilos parecidos al que usáis para los productos. Algunos productos (creo que porque son nuevos) aún no tienen imagen, por lo que he usado un ternario en los que son undefined para que muestre el logo de Lola Market.
+![Vídeo sección de productos](./src/images/readme/products.gif)
 
-_Gif productos_
+No tenía mucho tiempo, pero he intentado usar estilos parecidos al que usáis para los productos. Algunos productos (creo que porque son nuevos) aún no tienen imagen, por lo que he usado un ternario en los que son undefined para que muestre el logo de Lola Market.
 
 Y, ¡hasta aquí!
 
